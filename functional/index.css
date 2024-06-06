@@ -1,0 +1,13 @@
+body {
+    background-color: black;
+    color: white;
+    margin-left: 0;
+    margin-top: 0;
+    overflow: hidden !important;
+}
+.header {
+    width: 99.9%;background-color: white;color: black;font-family: monospace;white-space: pre;
+}
+.header span {
+    text-align: center;width: calc(100% - 14ch);display: inline-block;
+}
