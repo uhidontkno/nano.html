@@ -5,6 +5,7 @@ body {
     margin-top: 0;
     overflow: hidden !important;
 }
+body,html {height:100%;width:100%;}
 .header {
     width: 99.9%;background-color: white;color: black;font-family: monospace;white-space: pre;
 }
