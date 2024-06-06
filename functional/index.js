@@ -5,7 +5,7 @@ var ctx = c.getContext("2d");
 function splitString(str, ele, fontSize) {
     
     
-    let width = ele.clientWidth; // Width of the element
+    let width = ele.width; // assuming html5 canvas
     let charactersPerLine = Math.floor(width / fontSize);
     let result = [];
     let lines = str.split('\n'); // Split by existing newline characters
@@ -37,7 +37,6 @@ ctx.font = "16px monospace";
 ctx.fillStyle = "white"
 let str = splitString(i.value,c,16)
 for (let _ = 0; _ < str.length; _++) {
-    console.log(str[_],16*(_+1))
 ctx.fillText(str[_],1,16*(_+1));
 }
-},33);
+},50);
