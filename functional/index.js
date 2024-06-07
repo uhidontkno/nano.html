@@ -2,10 +2,8 @@ let c = document.querySelector("canvas")
 let i = document.querySelector("textarea")
 var ctx = c.getContext("2d");
 
-function splitString(str, ele, fontSize) {
-    
-    
-    let width = ele.width; // assuming html5 canvas
+function splitString(str, fontSize) {    
+    let width = window.innerWidth;
     let charactersPerLine = Math.floor(width / fontSize);
     let result = [];
     let lines = str.split('\n'); // Split by existing newline characters
@@ -32,13 +30,15 @@ window.addEventListener("resize",()=>{
    
 
 setInterval(()=>{
+i.focus();
 ctx.clearRect(0, 0, c.width, c.height);
 ctx.font = "16px monospace";
 ctx.fillStyle = "white"
-let str = splitString(i.value,c,16)
+let str = splitString(i.value,10)
 for (let _ = 0; _ < str.length; _++) {
 ctx.fillText(str[_],1,16*(_+1));
 }
+
 },50);
 
 window.addEventListener("keydown",inputkeydown);
@@ -48,7 +48,6 @@ function inputkeydown(evt){
   if (evt.ctrlKey && evt.key == "a"){ 
     console.log("CTRL+A")
     evt.preventDefault();
-    
     i.setSelectionRange(0, 0);
   }
 }
