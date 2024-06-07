@@ -40,3 +40,15 @@ for (let _ = 0; _ < str.length; _++) {
 ctx.fillText(str[_],1,16*(_+1));
 }
 },50);
+
+window.addEventListener("keydown",inputkeydown);
+
+function inputkeydown(evt){
+    console.log(evt);i.focus();
+  if (evt.ctrlKey && evt.key == "a"){ 
+    console.log("CTRL+A")
+    evt.preventDefault();
+    
+    i.setSelectionRange(0, 0);
+  }
+}
