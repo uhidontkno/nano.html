@@ -1,8 +1,6 @@
 let c = document.querySelector("canvas")
 let i = document.querySelector("textarea")
 var ctx = c.getContext("2d");
-
-let TSelection = [0,0]
 let LineNum = 0;
 function splitString(str, fontSize) {    
     let width = window.innerWidth;
@@ -35,10 +33,12 @@ window.addEventListener("resize",()=>{
 setInterval(()=>{
 i.focus();
 ctx.clearRect(0, 0, c.width, c.height);
+
 ctx.font = "16px monospace";
 ctx.fillStyle = "white"
 let str = splitString(i.value,10)
 for (let _ = 0; _ < str.length; _++) {
+ctx.moveTo(0,0);
 ctx.fillText(str[_],1,16*(_+1));
 }
 
@@ -52,12 +52,6 @@ function inputkeydown(evt){
     console.log("CTRL+A")
     evt.preventDefault();
     i.setSelectionRange(0, 0);
-    TSelection = [0,0]
   }
-  if (evt.key == "ArrowLeft" && TSelection[0] != 0) {
-    TSelection[0] = TSelection[0] - 1
-  }
-  if (evt.key == "ArrowRight" && TSelection[0] != Math.round(window.innerWidth/10)) {
-    TSelection[0] = TSelection[0] + 1
-  }
+  
 }
